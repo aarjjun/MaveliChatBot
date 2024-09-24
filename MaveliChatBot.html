@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maveli's Onam Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div id="typingIndicator" style="display: none;">Maveli is typing...</div>
+        <div class="chat-header">
+            <h2>Converse with King Mahabali</h2>
+            <img src="Images/mavelidp.png" alt="Maveli" class="maveli-avatar">
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="suggestion-box" id="suggestionBox"></div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ask Maveli about Onam, Kerala, or his reign...">
+            <button id="sendButton">Send</button>
+            <audio id="bgMusic" loop>
+                <source src="Audios/bgmusic.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

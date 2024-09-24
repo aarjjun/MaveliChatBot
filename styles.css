@@ -1,0 +1,251 @@
+body {
+    font-family: 'Malayalam Sangam MN', 'Noto Sans Malayalam', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('Images/mavelibg.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.chat-container {
+    width: 400px;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background-color: #FFA500;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.maveli-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-image: url('images/kerala-motif.png');
+    background-repeat: repeat;
+    background-size: 100px;
+    scroll-behavior: smooth;
+    
+    
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background-color: #E6F7FF;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+}
+
+.maveli-message {
+    background-color: #FFF6E6;
+    display: flex;
+    align-items: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+.maveli-message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #f0f0f0;
+}
+
+#userInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+#sendButton {
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+#sendButton:hover {
+    background-color: #FF8C00;
+}
+
+audio {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* .................................................. */
+.suggestion-box {
+    padding: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.suggestion-button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.suggestion-button:hover {
+    background-color: #FF8C00;
+    transform: scale(1.05);
+}
+
+.suggestion-button:active {
+    transform: scale(0.95);
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .chat-header h2 {
+        font-size: 1em;
+    }
+
+    .maveli-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    #userInput {
+        font-size: 14px;
+    }
+
+    .suggestion-button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+
+#userInput:focus {
+    outline: 2px solid #FFA500;
+}
+
+#sendButton:focus {
+    outline: 2px solid #FF8C00;
+}
+
+.suggestion-button:focus {
+    outline: 2px solid #FF8C00;
+}
+/* Placeholder text color */
+#userInput::placeholder {
+    color: #aaa;
+}
+
+/* Ensure better interaction for mobile users */
+#sendButton:active {
+    background-color: #FF8C00;
+    transform: scale(0.95);
+}
+
+/* Scrollbar styling for chat messages */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #FFA500;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+/* Ensure audio element styling for better display */
+audio {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Optional: Adjusting the transition speed */
+.suggestion-button {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Optional: Adding a smooth transition effect for chat message fade-ins */
+.message {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Styling for the typing indicator */
+#typingIndicator {
+    font-style: italic;
+    color: #999;
+    padding: 5px;
+    text-align: left;
+}

@@ -1,0 +1,55 @@
+body {
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('Images/mavelibg.jpeg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.welcome-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.welcome-container:hover {
+    transform: scale(1.05);
+}
+
+.welcome-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: #FFA500;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-message {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+#startChatButton {
+    padding: 15px 30px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#startChatButton:hover {
+    background-color: #FF8C00;
+    transform: scale(1.1);
+}

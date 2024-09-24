@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Onam Chat</title>
+    <link rel="stylesheet" href="indexstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1 class="welcome-title">Welcome to Maveli's Onam Chat!</h1>
+        <p class="welcome-message">Click the button below to start your conversation with King Mahabali.</p>
+        <button id="startChatButton">Start Chat</button>
+    </div>
+
+    <script>
+        document.getElementById('startChatButton').addEventListener('click', function() {
+            window.location.href = 'MaveliChatBot.html'; 
+        });
+    </script>
+</body>
+</html>
