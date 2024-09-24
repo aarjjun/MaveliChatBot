@@ -4,8 +4,11 @@ const sendButton = document.getElementById('sendButton');
 const suggestionBox = document.getElementById('suggestionBox');
 const themeToggle = document.getElementById('themeToggle');
 const bgMusic = document.getElementById('bgMusic');
+
+// Set background music volume and play
 bgMusic.volume = 0.2;
 bgMusic.play();
+
 const maveliResponses = {
     greetings: [
         "Namaskaram! I am King Mahabali. What would you like to know about Onam or my reign?",
@@ -83,7 +86,7 @@ function getRandomResponse(category) {
 function addMessage(content, isUser) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
-    
+
     if (isUser) {
         messageDiv.classList.add('user-message');
         messageDiv.textContent = content;
@@ -98,29 +101,22 @@ function addMessage(content, isUser) {
         textSpan.textContent = content;
         messageDiv.appendChild(textSpan);
 
-        speakWithEnglishVoice(content);
+        speakWithMaleVoice(content); // Use male voice for bot responses
     }
 
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-function speakWithEnglishVoice(text) {
+function speakWithMaleVoice(text) {
     const speech = new SpeechSynthesisUtterance(text);
-    
     const voices = speechSynthesis.getVoices();
-    const englishMaleVoice = voices.find(voice => 
-        voice.lang.startsWith('en') && voice.name.toLowerCase().includes('male')
-    );
+    
+    // Prioritize male voices
+    const maleVoices = voices.filter(voice => voice.name.toLowerCase().includes('male'));
 
-    if (englishMaleVoice) {
-        speech.voice = englishMaleVoice;
-    } else {
-        const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
-        if (englishVoice) {
-            speech.voice = englishVoice;
-        }
-    }
+    // Choose the first male voice if available, otherwise fallback to any English voice
+    speech.voice = maleVoices.length > 0 ? maleVoices[0] : voices.find(voice => voice.lang.startsWith('en'));
 
     speech.rate = 0.9;
     speech.pitch = 1;
@@ -160,7 +156,7 @@ function sendMessage() {
             const maveliResponse = getMaveliResponse(message);
             addMessage(maveliResponse, false);
             updateSuggestionBox();
-        }, 1000);  // Adjust the delay for realism
+        }, 1000); // Adjust the delay for realism
     }
 }
 
@@ -172,10 +168,13 @@ userInput.addEventListener('keypress', (e) => {
 });
 
 speechSynthesis.onvoiceschanged = () => {
-    setTimeout(() => {
-        addMessage(getRandomResponse('greetings'), false);
-        updateSuggestionBox();
-    }, 500);
+    const voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+        setTimeout(() => {
+            addMessage(getRandomResponse('greetings'), false);
+            updateSuggestionBox();
+        }, 500);
+    }
 };
 
 if (speechSynthesis.getVoices().length > 0) {
